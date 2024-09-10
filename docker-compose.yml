@@ -1,37 +1,40 @@
-version: '3.8'
+version: '3'
 
 services:
-  frontend:
-    build:
-      context: ./cloudfront
-    ports:
-      - "3000:80"  # Map port 80 in the container to port 3000 on the host
-
   backend:
     build:
-      context: ./cloudback
+      context: .
+      dockerfile: cloudback/Dockerfile
     ports:
-      - "8000:8000"  # Map port 8000 in the container to port 8000 on the host
-    environment:
-      - DJANGO_DB_HOST=db
-      - DJANGO_DB_PORT=3306
-      - DJANGO_DB_NAME=mydatabase
-      - DJANGO_DB_USER=root
-      - DJANGO_DB_PASSWORD=mysecretpassword
-    depends_on:
-      - db
+      - "8000:8000"
     volumes:
       - ./cloudback:/djangoback
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=kitchen_db
+      - DB_USER=root
+      - DB_PASSWORD=examplepassword
+    depends_on:
+      - mysql
 
-  db:
+  frontend:
+    build:
+      context: .
+      dockerfile: cloudfront/Dockerfile
+    ports:
+      - "3000:80"
+
+  mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: mysecretpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_PASSWORD: examplepassword
+      MYSQL_DATABASE: kitchen_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: examplepassword
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
 volumes:
-  db_data:
+  mysql_data:

@@ -1,0 +1,157 @@
+01-09-2023
+
+Project Started
+
+1 Front page 
+
+HTML Part
+
+<html>
+
+<head>
+    <title>Adjock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="SignInPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mt-3">
+
+            <div class="col-3" id="menuIconContainer">
+                <a href="#" id="menuIcon">
+                    <a href="#" class="icon-link ">
+                        <div class="icon-content">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="icon-link">
+                        <div class="icon-content">
+                            <i class="fa-solid fa-home"></i>
+                            <span>Home</span>
+                        </div>
+                    </a>
+                    <a href="#" class="icon-link">
+                        <div class="icon-content">
+                            <i class="fa-solid fa-history"></i>
+                            <span>History</span>
+                        </div>
+                    </a>
+                </a>
+            </div>
+
+            <div class="col-5">
+                <div class="input-group">
+                    <input type="text" placeholder="Search" class="form-control searchbar">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="signinbtn d-flex justify-content-end me-3">
+                    <a href="#" class="solidbtn">
+                        <i class="far fa-user-circle mt-1"></i> Sign In
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="video-gallery">
+            <div class="video">
+              <iframe width="320" height="240" src="https://www.youtube.com/embed/i5FtvddvT9o?si=lslaE1aFAgDHFuSX" frameborder="0" allowfullscreen></iframe>
+              <h2>Video Title 1</h2>
+            </div>
+            <div class="video">
+              <iframe width="320" height="240" src="https://www.youtube.com/embed/db6e22CkmJY?si=RAZYfwFCr23QqfFB" frameborder="0" allowfullscreen></iframe>
+              <h2>Video Title 2</h2>
+            </div>
+            <div class="video">
+              <iframe width="320" height="240" src="https://www.youtube.com/embed/OLb3ckvxUjE?si=dh2XyOhrXLQdMxUG" frameborder="0" allowfullscreen></iframe>
+              <h2>Video Title 3</h2>
+            </div>
+            <div class="video">
+              <iframe width="320" height="240" src="https://www.youtube.com/embed/COv52Qyctws?si=glMpsVnb2wU19eE6" frameborder="0" allowfullscreen></iframe>
+              <h2>Video Title 4</h2>
+            </div>
+          </div>
+          
+</body>
+
+</html>
+
+
+CSS Part
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+i{
+    font-size: 20px;
+   
+}
+
+.solidbtn{
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 3px 8px;
+    text-decoration: none;
+    color: rgb(72, 75, 228);
+}
+
+.solidbtn:hover{
+    background-color: rgb(215, 240, 248);
+}
+
+.searchbar{
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid;
+    padding: 4px 6px;
+}
+
+#menuIconContainer .icon-link {
+    display: flex;
+    margin-bottom: 10px; 
+    text-decoration: none;
+    font-size: small;
+    color: black;
+  }
+  
+  #menuIconContainer .icon-link i {
+    margin-right: 5px;
+  }
+  #menuIconContainer .icon-content {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .icon-content i{
+    margin-left: 4px;
+    margin-bottom: 8px;
+  }
+
+  .video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+    
+  }
+  
+
+ 
+   
+ 
+ 

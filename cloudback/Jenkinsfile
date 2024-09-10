@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    environment {
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the repository
+                git url: 'https://github.com/Prateekachar01/kitchen_project.git'
+            }
+        }
+
+        stage('Run Dummy Tests') {
+            steps {
+                script {
+                    echo 'Running dummy tests...'
+                    sh 'echo "Tests passed!"'
+                }
+            }
+        }
+
+        stage('Build Docker Images') {
+            steps {
+                script {
+                    // Build Docker images using docker-compose
+                    sh 'docker-compose build'
+                }
+            }
+        }
+
+        stage('Run Docker Containers') {
+            steps {
+                script {
+                    // Run the Docker containers in detached mode and expose the ports
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                script {
+                    echo 'Verifying deployment...'
+                    // Add any additional commands to verify your deployment here
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Cleanup Docker containers and images
+            script {
+                sh 'docker-compose down'
+            }
+        }
+    }
+}

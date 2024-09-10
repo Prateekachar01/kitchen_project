@@ -33,10 +33,21 @@ WORKDIR /app
 COPY cloudback/requirements.txt .
 
 # Install dependencies required to build and run Python packages
-RUN apk add --no-cache \
+# RUN apk add --no-cache \
+#     gcc \
+#     musl-dev \
+#     libffi-dev
+
+# Install system dependencies
+RUN apk update && apk add --no-cache \
+    mysql-client \
+    mariadb-dev \
     gcc \
     musl-dev \
-    libffi-dev
+    libffi-dev \
+    && rm -rf /var/cache/apk/*
+
+
 
 # Install pipenv
 RUN pip install pipenv
